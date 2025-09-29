@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About | Santos Shop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background: #111;
+            color: #fff;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: #b30000;
+            padding: 2rem 0 1rem 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.7rem;
+            letter-spacing: 2px;
+        }
+        header img {
+            /* width: 80px;
+            height: 80px; */
+            /* border-radius: 50%; */
+            margin-bottom: 0.5rem;
+            border: 3px solid #fff;
+            /* background: #fff; */
+            /* object-fit: cover; */
+        }
+        .container {
+            max-width: 900px;
+            margin: 2.5rem auto;
+            background: #181818;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px #000a;
+            padding: 2.5rem 2rem;
+        }
+        .intro {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2rem;
+        }
+        .intro img {
+            width: 320px;
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px #0006;
+        }
+        .intro-text {
+            flex: 1;
+        }
+        .features {
+            margin-top: 2.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        .feature-card {
+            background: #222;
+            border-radius: 8px;
+            padding: 1.5rem;
+            flex: 1 1 220px;
+            min-width: 220px;
+            box-shadow: 0 1px 4px #0005;
+            text-align: center;
+        }
+        .feature-card img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 1rem;
+        }
+        .team-section {
+            margin-top: 3rem;
+        }
+        .team-list {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .team-member {
+            background: #232323;
+            border-radius: 8px;
+            padding: 1rem 1.5rem;
+            text-align: center;
+            width: 150px;
+            box-shadow: 0 1px 4px #0004;
+        }
+        .team-member img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            margin-bottom: 0.5rem;
+            object-fit: cover;
+            border: 2px solid #b30000;
+        }
+        .contact-section {
+            margin-top: 3rem;
+            background: #222;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        a {
+            color: #ff4d4d;
+            text-decoration: underline;
+        }
+        @media (max-width: 800px) {
+            .intro {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .features {
+                flex-direction: column;
+            }
+            .team-list {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="https://img.icons8.com/ios-filled/100/ffffff/robot-2.png" alt="Santos Shop Logo">
+        <h1>About Santos Shop</h1>
+    </header>
+    <div class="container">
+        <div class="intro">
+            <span style="filter: drop-shadow(0 0 12px #ff4d4d); background: #fff; border-radius: 10px; animation: machinery-bounce 1.5s infinite alternate;"></span>
+            <style>
+                @keyframes machinery-bounce {
+                    0% { transform: translateY(0);}
+                    100% { transform: translateY(-18px);}
+                }
+            </style>
+            <div class="intro-text">
+                <h2>Who We Are</h2>
+                <p>
+                    <strong>Santos Shop</strong> is your trusted partner for premium machinery, tools, and industrial solutions. With over a decade of experience, we serve professionals, businesses, and hobbyists with a wide range of products and expert advice.
+                </p>
+                <p>
+                    Our mission is to empower your work with reliable equipment, competitive prices, and outstanding customer support.
+                </p>
+            </div>
+        </div>
+        <div class="features">
+            <div class="feature-card">
+                <img src="https://img.icons8.com/ios-filled/100/ff4d4d/gear.png" alt="Wide Selection">
+                <h3>Wide Selection</h3>
+                <p>
+                    From heavy-duty machinery to precision tools, we offer products for every need and budget.
+                </p>
+            </div>
+            <div class="feature-card">
+                <img src="https://img.icons8.com/ios-filled/100/ff4d4d/technical-support.png" alt="Expert Support">
+                <h3>Expert Support</h3>
+                <p>
+                    Our knowledgeable team is ready to help you choose the right equipment and provide after-sales assistance.
+                </p>
+            </div>
+            <div class="feature-card">
+                <img src="https://img.icons8.com/ios-filled/100/ff4d4d/delivery.png" alt="Fast Delivery">
+                <h3>Fast Delivery</h3>
+                <p>
+                    We ensure quick and secure shipping, so your orders arrive safely and on time.
+                </p>
+            </div>
+        </div>
+        <div class="team-section">
+            <h2>Meet Our Team</h2>
+            <div class="team-list">
+                <div class="team-member">
+                    <img src="https://img.icons8.com/ios-filled/100/ff4d4d/user-male-circle.png" alt="John Santos">
+                    <h4>Caleb Kamunge</h4>
+                    <p>Founder & CEO</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://img.icons8.com/ios-filled/100/ff4d4d/user-male-circle.png" alt="Maria Lopez">
+                    <h4>Benson Kasoo</h4>
+                    <p>Product Designer</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://img.icons8.com/ios-filled/100/ff4d4d/user-male-circle.png" alt="Carlos Rivera">
+                    <h4>Dennis Muthusi</h4>
+                    <p>Technical Lead</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://img.icons8.com/ios-filled/100/ff4d4d/user-male-circle.png" alt="Carlos Rivera">
+                    <h4>Stephen Mwangi</h4>
+                    <p>Product Promoter</p>
+                </div>
+            </div>
+        </div>
+        <div class="contact-section">
+            <h2>Contact Us</h2>
+            <p>
+                Have questions or need a quote? Reach out to our team!
+            </p>
+            <p>
+                <strong>Email:</strong> <a href="mailto:info@santos.com">info@santos.com</a><br>
+                <strong>Phone:</strong> <a href="tel:+1234567890">+254 (746) 993-728</a>
+            </p>
+            <p>
+                Visit us at:<br>
+                Nairobi<br>
+                Kenya
+            </p>
+            <a href="{% url 'home' %}" style="display: inline-block; margin-top: 1.5rem; background: #b30000; color: #fff; padding: 0.7rem 2rem; border-radius: 6px; text-decoration: none; font-weight: 600; box-shadow: 0 2px 8px #0004; transition: background 0.2s;">
+                &#8592; Home
+            </a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Santos Shop - Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google Fonts for modern look -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:700,400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', Arial, sans-serif;
+            background: #1a1a1a;
+            color: #fff;
+            
+        }
+        header {
+            background: #d32f2f;
+            display: flex;
+            align-items: center;
+            padding: 10px 10px;
+            justify-content: space-between;
+            position: fixed;
+            top: 0; /* Fixes it to the top of the viewport */
+            width: 100%;
+            z-index: 10; /* Ensures it stays on top of other content */
+           
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            height: 50px;
+            margin-right: 15px;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 18px;
+            font-weight: 700;
+            transition: color 0.2s;
+        }
+        nav a:hover {
+            color: #ffc107;
+        }
+        .hero {
+            background: linear-gradient(90deg,#1a1a1a 0%, #d32f2f 50%, #1a1a1a 100%);
+            padding: 70px 20px;
+            text-align: center;
+            
+        }
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            color: #fff;
+            letter-spacing: 2px;
+        }
+        .hero p {
+            font-size: 1.3em;
+            color: #f5f5f5;
+            margin-bottom: 30px;
+        }
+        .hero button {
+            background: #000;
+            color: #fff;
+            border: none;
+            padding: 15px 35px;
+            font-size: 1em;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+        .hero button:hover {
+            background: #fff7f7;
+            color: #000000;
+        }
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            padding: 50px 20px;
+            background: #222;
+        }
+        .feature-card {
+            background: #fff;
+            color: #d32f2f;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+            padding: 30px 25px;
+            width: 280px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .feature-card:hover {
+            transform: translateY(-8px) scale(1.03);
+        }
+        .feature-card img {
+            height: 60px;
+            margin-bottom: 15px;
+        }
+        footer {
+            background: #111;
+            color: #fff;
+            text-align: center;
+            padding: 25px 10px;
+            font-size: 1em;
+        }
+        @media (max-width: 800px) {
+            .features {
+                flex-direction: column;
+                align-items: center;
+            }
+            header {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <!-- Placeholder logo, replace src with your actual logo file -->
+            <img src="https://img.icons8.com/ios-filled/100/ffffff/robot-2.png" alt="Santos Machinery Logo">
+            <span style="font-size:2em; font-weight:700; color:#fff;">Santos Shop</span>
+        </div>
+        <nav>
+            <a href="{% url 'home' %}" style="border-bottom: 2px solid #ffc107;">Home</a>
+            <a href="{% url 'index' %}">Products</a>
+            <a href="{% url 'about' %}">About</a>
+            <a href="{% url 'admin:index' %}">Login</a>
+        </nav>
+    </header>
+    <section class="hero">
+        <h1>Welcome to Santos Shop</h1>
+        <p>Innovative solutions for industrial machinery. Quality, reliability, and performance you can trust.</p>
+        <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get in <b style="color: #d32f2f;">Touch</b></button>
+    </section>
+    <section class="features" id="products">
+        <div class="feature-card">
+            <img src="https://img.icons8.com/ios-filled/100/d32f2f/gear.png" alt="Precision Engineering">
+            <h2>Precision Engineering</h2>
+            <p>State-of-the-art machinery designed for accuracy and durability in every application.</p>
+        </div>
+        <div class="feature-card">
+            <img src="https://img.icons8.com/ios-filled/100/d32f2f/maintenance.png" alt="Maintenance">
+            <h2>24/7 Support</h2>
+            <p>Our expert team is always ready to assist with maintenance and technical support.</p>
+        </div>
+        <div class="feature-card">
+            <img src="https://img.icons8.com/?size=100&id=9012&format=png&color=d32f2f" alt="Automation">
+            <h2>Automation Solutions</h2>
+            <p>Boost productivity with our advanced automation and control systems.</p>
+        </div>
+    </section>
+    <section id="about" style="background:#1a1a1a; padding:40px 20px; text-align:center;">
+        <h2 style="color:#d32f2f;"> Santos Shop</h2>
+        <p style="max-width:700px; margin:20px auto; color:#f5f5f5;">
+            Santos Shop has been a leader in industrial equipment for over 10 years, delivering innovative solutions and unmatched customer service. Our mission is to empower businesses with reliable, high-performance machinery tailored to their needs.
+        </p>
+    </section>
+    <section id="contact" style="background:#222; padding:40px 20px; text-align:center;">
+        <h2 style="color:#d32f2f;">Contact Us</h2>
+        <form style="max-width:400px; margin:30px auto; text-align:left;" onsubmit="showThankYou(event)" 
+        action="mailto:info@santos.com?subject=Form Submission&body=Message:" method="post" enctype="text/plain">
+            <label for="name" style="color:#fff;">Name:</label><br>
+            <input type="text" id="name" name="name" required style="width:100%;padding:10px;margin-bottom:15px;border-radius:6px;border:none;"><br>
+            <label for="email" style="color:#fff;">Email:</label><br>
+            <input type="email" id="email" name="email" required style="width:100%;padding:10px;margin-bottom:15px;border-radius:6px;border:none;"><br>
+            <label for="message" style="color:#fff;">Message:</label><br>
+            <textarea id="message" name="message" required rows="4" style="width:100%;padding:10px;margin-bottom:15px;border-radius:6px;border:none;"></textarea><br>
+            <button type="submit" style="background:#d32f2f;color:#fff;padding:10px 25px;border:none;border-radius:20px;font-weight:bold;cursor:pointer;">Send</button>
+        </form>
+        <div id="thankyou" style="display:none; color:#ffc107; font-size:1.2em; margin-top:20px;">Thank you for contacting us!</div>
+    </section>
+    <footer>
+        <img src="https://img.icons8.com/ios-filled/40/d32f2f/robot-2.png" alt="Santos Machinery Logo" style="vertical-align:middle;">
+        <span style="margin-left:10px;">&copy; 2025 Santos Shop. All rights reserved.</span>
+    </footer>
+    <script>
+        // Simple interactive thank you message for contact form
+        function showThankYou(e) {
+            e.preventDefault();
+            document.querySelector('#thankyou').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

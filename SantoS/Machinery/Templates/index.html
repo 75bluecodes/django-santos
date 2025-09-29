@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            background: #ffffff;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: #d90429;
+            display: flex;
+            align-items: center;
+            padding: 10px 10px;
+            justify-content: space-between;
+            /* position: fixed; */
+            top: 0; /* Fixes it to the top of the viewport */
+            width: 100%;
+            z-index: 10; /* Ensures it stays on top of other content */
+           
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            height: 50px;
+            margin-right: 15px;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 18px;
+            font-weight: 700;
+            transition: color 0.2s;
+        }
+        nav a:hover {
+            color: #ffc107;
+        }
+        h1 {
+            color: #d90429;
+            margin: 0;
+        }
+        .search-bar {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        .search-bar input {
+            width: 300px;
+            padding: 0.7rem;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            outline: red solid 2px;
+            font-size: 1rem;
+        }
+        .search-bar button {
+            padding: 0.7rem 1.2rem;
+            border: none;
+            background: #d90429;
+            color: #fff;
+            border-radius: 0 4px 4px 0;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .search-bar button:hover {
+            background: #a0031e;
+        }
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            padding: 2rem;
+        }
+        .product-card {
+            background: #fbfbfb;
+            border: 2px solid #d90429;
+            border-radius: 8px;
+            width: 250px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .product-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 6px 16px rgba(217,4,41,0.3);
+        }
+        .product-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+        .product-title {
+            color: #090000;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        .product-price {
+            color: #d90429;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        .product-desc {
+            font-size: 0.95rem;
+            color: #644646;
+            margin-bottom: 1rem;
+        }
+
+        .buy-btn {
+            background: #d90429;
+            color: #fff;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.2s;
+            
+        }
+        .buy-btn:hover {
+            background: #a0031e;
+        }
+        @media (max-width: 700px) {
+            .products {
+                flex-direction: column;
+                align-items: center;
+            }
+            header {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <!-- Placeholder logo, replace src with your actual logo file -->
+            <img src="https://img.icons8.com/ios-filled/100/ffffff/robot-2.png" alt="Santos Machinery Logo">
+            <span style="font-size:2em; font-weight:700; color:#fff;">Santos Shop</span>
+        </div>
+        <nav>
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'index' %}" style="border-bottom: 2px solid #ffc107;">Products</a>
+            <a href="{% url 'about' %}">About</a>
+        </nav>
+    </header>
+    <div class="search-bar">
+        <form action="{% url 'search_results' %}" method="GET">
+            <input type="text" id="searchInput" name="q" placeholder="Search products...">
+            <button type="submit">Search</button>
+        </form>
+    </div>
+    <div class="products" id="productList">
+        <!-- Product cards will be injected here -->
+         {% for product in products %}
+        <div class="product-card">
+            <img src="{{ product.product_image.url }}" alt="{{ product.product_name }}">
+            <div class="product-title">{{ product.product_name }}</div>
+            <div class="product-price">{{ product.product_price }}</div>
+            <div class="product-desc">{{ product.product_description }}</div>
+            <div>
+                <a 
+                      class="buy-btn" 
+                      href="https://wa.me/254746993728?text=I'm%20interested%20in%20{{ product.product_name }}%20{{ product.product_description }}%20({{ product.product_price }})" 
+                      target="_blank"
+                      style="display:inline-block; text-decoration:none;">Order Now <span>&rarr;</span>
+                 </a>            
+            </div>
+
+         </div>
+         {% endfor %}
+
+    </div>
+
+</body>
+</html>
